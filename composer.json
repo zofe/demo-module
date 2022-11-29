@@ -1,6 +1,6 @@
 {
-    "name": "zofe/rapyd-demo-module",
-    "description": "demo module for rapyd-livewire package",
+    "name": "zofe/demo-module",
+    "description": "demo module for rapyd-livewire application",
     "license": "mit",
     "type": "rapyd-module",
     "authors": [
