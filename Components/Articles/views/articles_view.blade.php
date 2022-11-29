@@ -25,7 +25,7 @@
     <div class="col-8">
         <div v-pre class="documenter h-100">
             <h4>route</h4>
-{!! App\Modules\Demo\Documenter::showCode("Modules/Demo/Components/routes.php", false, '^Route::get\(\'demo\/article\/view\/.*}\);$') !!}
+{!! App\Modules\Demo\Documenter::showCode("Components/routes.php", false, '^Route::get\(\'demo\/article\/view\/.*}\);$') !!}
         </div>
     </div>
 </div>
@@ -33,13 +33,13 @@
     <div class="col-5">
         <div v-pre class="documenter">
             <h4>component</h4>
-{!! App\Modules\Demo\Documenter::showCode("Modules/Demo/Components/Articles/ArticlesView.php") !!}
+{!! App\Modules\Demo\Documenter::showCode("Components/Articles/ArticlesView.php") !!}
         </div>
     </div>
     <div class="col-7">
         <div v-pre class="documenter">
             <h4>view</h4>
-{!! App\Modules\Demo\Documenter::showCode("Modules/Demo/Components/Articles/views/articles_view.blade.php", true) !!}
+{!! App\Modules\Demo\Documenter::showCode("Components/Articles/views/articles_view.blade.php", true) !!}
         </div>
     </div>
 </div>
