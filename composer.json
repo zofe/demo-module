@@ -1,0 +1,12 @@
+{
+    "name": "zofe/rapyd-demo-module",
+    "description": "demo module for rapyd-livewire package",
+    "license": "mit",
+    "authors": [
+        {
+            "name": "Felice",
+            "email": "felice.ostuni@uania.com"
+        }
+    ],
+    "require": {}
+}
