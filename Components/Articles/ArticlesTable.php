@@ -2,10 +2,10 @@
 
 namespace App\Modules\Demo\Components\Articles;
 
-use App\Models\Author;
-use Livewire\Component;
+use App\Modules\Demo\Models\Author;
 use App\Modules\Demo\Models\Article;
 use Zofe\Rapyd\Traits\WithDataTable;
+use Livewire\Component;
 
 class ArticlesTable extends Component
 {
