@@ -2,6 +2,7 @@
     "name": "zofe/rapyd-demo-module",
     "description": "demo module for rapyd-livewire package",
     "license": "mit",
+    "type": "rapyd-module",
     "authors": [
         {
             "name": "Felice",
