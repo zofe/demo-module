@@ -14,7 +14,7 @@ class DemoController extends Controller
 {
     public function __construct()
     {
-        view()->share('db_filled', Schema::hasTable('rapyd_demo_users'));
+        view()->share('db_filled', Schema::hasTable('demo_articles'));
     }
 
     public function index()
@@ -24,7 +24,7 @@ class DemoController extends Controller
 
     public function schema()
     {
-        DB::table('demo_users')->truncate();
+        DB::table('demo_authors')->truncate();
         DB::table('demo_articles')->truncate();
         Artisan::call('db:seed', ['--class' => DemoSeeder::class, '--no-interaction' => true]);
 
