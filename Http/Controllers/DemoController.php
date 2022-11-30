@@ -3,10 +3,12 @@
 namespace App\Modules\Demo\Http\Controllers;
 
 
+use App\Modules\Demo\Database\Seeders\DemoSeeder;
 use Faker\Factory;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Artisan;
 
 class DemoController extends Controller
 {
@@ -22,49 +24,9 @@ class DemoController extends Controller
 
     public function schema()
     {
-        Schema::dropIfExists("rapyd_demo_users");
-        Schema::dropIfExists("rapyd_demo_articles");
-
-        Schema::table("rapyd_demo_users", function ($table) {
-            $table->create();
-            $table->increments('id');
-            $table->string('firstname', 100);
-            $table->string('lastname', 100);
-            $table->timestamps();
-        });
-
-        Schema::table("rapyd_demo_articles", function ($table) {
-            $table->create();
-            $table->increments('id');
-            $table->integer('author_id')->unsigned();
-            $table->string('title', 200);
-            $table->text('body')->nullable();
-            $table->tinyInteger('public')->default(0);
-            $table->timestamp('publication_date');
-            $table->timestamps();
-        });
-
-        $faker = Factory::create();
-        for ($i = 1;$i <= 10;$i++) {
-            DB::table('rapyd_demo_users')->insert(
-                [
-                    'firstname' => $faker->firstName,
-                    'lastname' => $faker->lastName,
-                ]
-            );
-            for ($j = 1;$j <= 2;$j++) {
-                DB::table('rapyd_demo_articles')->insert(
-                    [
-                        'author_id' => $i,
-
-                        'title' => $faker->sentence,
-                        'body' => $faker->text,
-                        'public' => 1,
-                        'publication_date' => $faker->dateTime,
-                    ]
-                );
-            }
-        }
+        DB::table('demo_users')->truncate();
+        DB::table('demo_articles')->truncate();
+        Artisan::call('db:seed', ['--class' => DemoSeeder::class, '--no-interaction' => true]);
 
         session()->flash('message', 'Database populated');
 
