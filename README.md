@@ -9,6 +9,9 @@ This is a demo module for a Laravel application (>= 8) that show a minimal "arti
 Your laravel application must have rapyd-livewire package already installed first, then you can require this module using: 
 ```
 composer require zofe/rapyd-module-installer zofe/demo-module
+
+php artisan migrate 
+php artisan db:seed --class="App\\Modules\\Demo\\Database\\Seeders\\DemoSeeder"
 ```
 
 Please ensure that you have a `livewire.php` config file in your laravel config folder.  
