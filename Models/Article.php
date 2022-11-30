@@ -10,7 +10,7 @@ class Article extends Model
 {
     use HasFactory;
     use SSearch;
-    public $table = 'rapyd_demo_articles';
+    public $table = 'demo_articles';
 
     protected $attributes = [
         'public' => 0,

@@ -10,7 +10,7 @@ class Author extends Model
 {
     use HasFactory;
     use SSearch;
-    public $table = 'rapyd_demo_users';
+    public $table = 'demo_users';
 
     public static function ssearchFallback($query)
     {
