@@ -1,6 +1,6 @@
 <div>
     <x-rpd::table
-        title="Articles"
+        title="List Articles"
         :items="$items"
     >
         <x-slot name="filters">
