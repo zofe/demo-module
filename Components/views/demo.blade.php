@@ -9,9 +9,8 @@
     @endif
 
     <p class="small">
-        Rapyd is a preset of laravel application components.<br>
-        Each example in this demo show a way to use/extend a Rapyd component. <br>
-        The aim is to make custom CRUDS in few lines of code.<br>
+        Rapyd is a preset of laravel components.<br>
+        The aim of this demo is to show how make custom CRUD domponents in few lines of code.<br>
     </p>
 
     <hr>
@@ -20,13 +19,19 @@
 
         @if(!Session::has('message'))
             @if (!$db_filled)
-                it seems that no demo data is present, please:<br />
+                It seems that no demo data is present, please:<br />
                 <br />
-                <a href="#" wire:click="populate" class="btn btn-primary">Populate Database</a>
+                <a href="#" wire:click="populate" class="btn btn-outline-danger">Populate Database</a>
             @else
-                You can reset database  demo data by:<br />
-                <br />
-                <a href="#" wire:click="populate" class="btn btn-primary">Re-Populate Database</a>
+                Check out the potential of rapyd-livewire here: <br />
+
+                <a href="{{ route('demo.articles') }}" class="btn btn-primary">Crud Demo</a>
+
+
+                <br /><br />
+                You can reset database demo data:<br />
+
+                <a href="#" wire:click="populate" class="btn btn-outline-danger">Re-Populate</a>
             @endif
         @endif
         <br />
