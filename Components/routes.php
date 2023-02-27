@@ -4,8 +4,16 @@ use App\Modules\Demo\Components\Articles\ArticlesTable;
 use App\Modules\Demo\Components\Articles\ArticlesView;
 use App\Modules\Demo\Components\Articles\ArticlesEdit;
 
+use App\Modules\Demo\Components\Home;
 use Illuminate\Support\Facades\Route;
 
+
+Route::get('demo/', Home::class)
+    ->middleware(['web'])
+    ->name('demo')
+    ->crumbs(function ($crumbs) {
+        $crumbs->push('Home', route('demo'));
+    });
 
 
 Route::get('demo/articles', ArticlesTable::class)

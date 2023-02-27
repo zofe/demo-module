@@ -8,9 +8,5 @@
 |
 */
 return [
-    'name' => 'Demo',
-    'seeder' => [],
-    'providers' => [],
-    'middleware' => [],
-    'route_middleware' => ['web'],
+    'layout' => 'demo::admin',
 ];

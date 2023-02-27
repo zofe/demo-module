@@ -1,23 +1,29 @@
 
-<x-rpd::edit title="Article Edit">
-
+<x-rpd::card>
     <div>
-        <div class="row">
-            <x-rpd::input col="col-4" model="article.title" label="Title" />
-            <x-rpd::select col="col-4" model="article.author_id" :options="$authors" label="Author" addempty />
-            <x-rpd::checkbox col="col-4 pt-2" model="article.public" label="Public" checkLabel="true" />
-        </div>
-        <div class="row mb-5">
-            <x-rpd::rich-text col="col-12 mb-5" model="article.body" label="Body" />
-        </div>
+        <x-slot name="buttons">
+        </x-slot>
+
+        <x-rpd::edit title="Article Edit">
+            <div>
+                <div class="row">
+                    <x-rpd::input col="col-4" model="article.title" label="Title" />
+                    <x-rpd::select col="col-4" model="article.author_id" :options="$authors" label="Author" addempty />
+                    <x-rpd::checkbox col="col-4 pt-2" model="article.public" label="Public" checkLabel="true" />
+                </div>
+                <div class="row mb-5">
+                    <x-rpd::rich-text col="col-12 mb-5" model="article.body" label="Body" />
+                </div>
+            </div>
+            <x-slot name="actions">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </x-slot>
+        </x-rpd::edit>
+
     </div>
+</x-rpd::card>
 
 
-    <x-slot name="actions">
-        <button type="submit" class="btn btn-primary">Save</button>
-    </x-slot>
-
-</x-rpd::edit>
 
 @section('doc')
     <div class="row my-3">

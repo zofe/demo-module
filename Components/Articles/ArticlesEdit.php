@@ -36,6 +36,6 @@ class ArticlesEdit extends Component
     {
         $authors = Author::all()->pluck('firstname', 'id')->toArray();
 
-        return view('demo::Articles.views.articles_edit', compact('authors'));
+        return view('demo::Articles.views.articles_edit', compact('authors'))->layout('demo::admin');
     }
 }

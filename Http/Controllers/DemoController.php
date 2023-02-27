@@ -19,7 +19,7 @@ class DemoController extends Controller
 
     public function index()
     {
-        return view('demo::layouts.demo');
+        return view('demo::frontend');
     }
 
     public function schema()
@@ -30,7 +30,7 @@ class DemoController extends Controller
 
         session()->flash('message', 'Database populated');
 
-        return view('demo::layouts.demo');
+        return view('demo::frontend');
     }
 
 

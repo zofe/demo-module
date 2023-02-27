@@ -17,6 +17,6 @@ class ArticlesView extends Component
 
     public function render()
     {
-        return view('demo::Articles.views.articles_view');
+        return view('demo::Articles.views.articles_view')->layout('demo::admin');
     }
 }

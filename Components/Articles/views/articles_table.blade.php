@@ -1,4 +1,4 @@
-<div>
+<x-rpd::card>
     <x-rpd::table
         title="List Articles"
         :items="$items"
@@ -40,7 +40,7 @@
         </table>
 
     </x-rpd::table>
-</div>
+</x-rpd::card>>
 
 
 @section('doc')

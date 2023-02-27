@@ -43,8 +43,9 @@ class ArticlesTable extends Component
         $authors = Author::all()->pluck('firstname','id')->toArray();
 
 
+
         return view('demo::Articles.views.articles_table',
                     compact('items','authors')
-        );
+        )->layout('demo::admin');
     }
 }

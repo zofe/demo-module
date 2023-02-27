@@ -6,8 +6,22 @@
     "authors": [
         {
             "name": "Felice",
-            "email": "felice.ostuni@uania.com"
+            "email": "felice.ostuni@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "php": "^7.4|^8.0|^8.1|^8.2",
+        "illuminate/config": "^8.65|^9.0|^10.0",
+        "illuminate/contracts": "^8.65|^9.0|^10.0",
+        "livewire/livewire": "^2.0",
+        "cviebrock/eloquent-sluggable": "^8.0|^9.0|^10.0",
+        "zofe/rapyd-livewire": "^0.8.29",
+        "zofe/rapyd-module-installer": "^0.0|^0.1",
+        "zofe/layout-module": "^0.0|^0.1"
+    },
+    "config": {
+        "allow-plugins": {
+            "zofe/rapyd-module-installer": true
+        }
+    }
 }
