@@ -10,7 +10,7 @@ Demo show "CRUD" features in the laravel / rapyd-livewire stack.
 
 Your laravel application must have rapyd-livewire package already installed first, then you can require this module using: 
 ```
-composer require zofe/rapyd-module-installer zofe/demo-module
+composer require zofe/demo-module
 
 php artisan migrate 
 php artisan db:seed --class="App\\Modules\\Demo\\Database\\Seeders\\DemoSeeder"
