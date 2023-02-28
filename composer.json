@@ -15,13 +15,15 @@
         "illuminate/contracts": "^8.65|^9.0|^10.0",
         "livewire/livewire": "^2.0",
         "cviebrock/eloquent-sluggable": "^8.0|^9.0|^10.0",
-        "zofe/rapyd-livewire": "^0.8.29",
+        "zofe/rapyd-livewire": "dev-master|^0.8",
         "zofe/rapyd-module-installer": "^0.0|^0.1",
-        "zofe/layout-module": "^0.0|^0.1"
+        "zofe/layout-module": "dev-main|^0.0|^0.1"
     },
     "config": {
         "allow-plugins": {
             "zofe/rapyd-module-installer": true
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
