@@ -40,7 +40,7 @@
         </table>
 
     </x-rpd::table>
-</x-rpd::card>>
+</x-rpd::card>
 
 
 @section('doc')
