@@ -8,7 +8,7 @@ Demo show "CRUD" features in the laravel / rapyd-livewire stack.
 
 # Installation & configuration 
 
-Your lcan require this module in your larave application using: 
+Your can require this module in your laravel application using:
 ```
 composer require zofe/demo-module
 
