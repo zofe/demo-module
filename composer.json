@@ -1,27 +1,31 @@
 {
     "name": "zofe/demo-module",
-    "description": "demo module for rapyd-livewire application",
-    "license": "mit",
-    "type": "rapyd-module",
+    "description": "Demo CRUD module for rapyd-admin v2 \u2014 self-documenting articles/authors example",
+    "license": "MIT",
+    "type": "library",
     "authors": [
         {
-            "name": "Felice",
+            "name": "Felice Ostuni",
             "email": "felice.ostuni@gmail.com"
         }
     ],
     "require": {
-        "php": "^7.4|^8.0|^8.1|^8.2",
-        "illuminate/config": "^8.65|^9.0|^10.0",
-        "illuminate/contracts": "^8.65|^9.0|^10.0",
-        "livewire/livewire": "^2.0",
-        "cviebrock/eloquent-sluggable": "^8.0|^9.0|^10.0",
-        "zofe/rapyd-livewire": "dev-main|^0.8",
-        "zofe/rapyd-module-installer": "^0.0|^0.1",
-        "zofe/layout-module": "dev-main|^0.0|^0.1"
+        "php": "^8.2",
+        "illuminate/config": "^11.0|^12.0|^13.0",
+        "illuminate/contracts": "^11.0|^12.0|^13.0",
+        "livewire/livewire": "^4.0",
+        "zofe/rapyd-admin": "dev-main|^2.0"
     },
-    "config": {
-        "allow-plugins": {
-            "zofe/rapyd-module-installer": true
+    "autoload": {
+        "psr-4": {
+            "App\\Modules\\Demo\\": "./"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "App\\Modules\\Demo\\DemoModuleServiceProvider"
+            ]
         }
     },
     "minimum-stability": "dev",

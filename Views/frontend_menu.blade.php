@@ -1,4 +1,4 @@
 
-<x-rpd::nav-link label="Crud Demo" route="demo.articles" />
+<x-rpd::nav-item label="Crud Demo" route="demo.articles" />
 
 
