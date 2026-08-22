@@ -27,7 +27,7 @@ class Home extends Component
 
     public function render()
     {
-        return view("demo::views.demo")->layout('demo::frontend');
+        return view("demo::views.demo")->layout('demo::admin');
     }
 
     public function populate()
