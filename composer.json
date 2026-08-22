@@ -1,6 +1,6 @@
 {
     "name": "zofe/demo-module",
-    "description": "Demo CRUD module for rapyd-admin v2 \u2014 self-documenting articles/authors example",
+    "description": "Demo CRUD module for rapyd-admin — self-documenting articles/authors example",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -14,7 +14,11 @@
         "illuminate/config": "^11.0|^12.0|^13.0",
         "illuminate/contracts": "^11.0|^12.0|^13.0",
         "livewire/livewire": "^4.0",
-        "zofe/rapyd-admin": "dev-main|^2.0"
+        "zofe/rapyd-admin": "^1.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^10.0|^11.0",
+        "phpunit/phpunit": "^11.0|^12.0"
     },
     "autoload": {
         "psr-4": {
@@ -28,6 +32,6 @@
             ]
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }
