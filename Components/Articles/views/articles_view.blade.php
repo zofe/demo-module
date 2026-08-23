@@ -2,7 +2,7 @@
     <x-rpd::view title="Article Detail">
       <x-slot name="buttons">
         <x-rpd::button route="demo.articles" color="outline-primary" label="list" />
-        <x-rpd::button :href="route('demo.articles.edit', $article->id)" color="outline-primary" label="edit" />
+        <x-rpd::button :route="['demo.articles.edit', $article->id]" color="outline-primary" label="edit" />
       </x-slot>
 
       <dl class="row">
