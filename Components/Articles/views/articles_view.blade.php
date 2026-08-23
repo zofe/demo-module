@@ -1,8 +1,8 @@
 <x-rpd::card>
     <x-rpd::view title="Article Detail">
       <x-slot name="buttons">
-        <a href="{{ route('demo.articles') }}" class="btn btn-outline-primary">list</a>
-        <a href="{{ route('demo.articles.edit',$article->id) }}" class="btn btn-outline-primary">edit</a>
+        <x-rpd::button route="demo.articles" color="outline-primary" label="list" />
+        <x-rpd::button :href="route('demo.articles.edit', $article->id)" color="outline-primary" label="edit" />
       </x-slot>
 
       <dl class="row">

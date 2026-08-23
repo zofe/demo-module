@@ -16,7 +16,7 @@
                 </div>
             </div>
             <x-slot name="actions">
-                <button type="submit" class="btn btn-primary">Save</button>
+                <x-rpd::button type="submit" label="Save" />
             </x-slot>
         </x-rpd::edit>
 

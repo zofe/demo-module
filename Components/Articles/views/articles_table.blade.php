@@ -10,8 +10,8 @@
         </x-slot>
 
         <x-slot name="buttons">
-            <a href="{{ route('demo.articles') }}" class="btn btn-outline-dark">reset</a>
-            <a href="{{ route('demo.articles.edit') }}" class="btn btn-outline-primary">add</a>
+            <x-rpd::button route="demo.articles" color="outline-dark" label="reset" />
+            <x-rpd::button route="demo.articles.edit" color="outline-primary" label="add" />
         </x-slot>
 
         <table class="table">
