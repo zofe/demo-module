@@ -18,6 +18,12 @@ class Home extends Component
 
     public function populate()
     {
+        // Re-populating an existing dataset can be disabled (config demo.repopulate);
+        // filling an empty database is always allowed.
+        if ($this->db_filled && ! config('demo.repopulate', true)) {
+            abort(403);
+        }
+
         Artisan::call('db:seed', ['--class' => DemoSeeder::class, '--no-interaction' => true]);
 
         session()->flash('message', 'Demo data (re)populated.');

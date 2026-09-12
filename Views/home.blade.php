@@ -12,9 +12,11 @@
         <p class="mb-3">
             <x-rpd::button route="demo.articles" color="primary" label="Open the articles table" />
         </p>
-        <p class="small text-muted mb-0">
-            Want a clean slate? <a href="#" wire:click.prevent="populate">Re-populate the demo data</a>.
-        </p>
+        @if(config('demo.repopulate', true))
+            <p class="small text-muted mb-0">
+                Want a clean slate? <a href="#" wire:click.prevent="populate">Re-populate the demo data</a>.
+            </p>
+        @endif
     @else
         <p class="mb-0">
             No demo data yet.

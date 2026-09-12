@@ -50,6 +50,20 @@ class DemoTest extends TestCase
         $this->assertSame(0, Article::whereNotIn('author_id', Author::pluck('id'))->count(), 'every article has a living author');
     }
 
+    public function test_repopulate_can_be_disabled_for_public_demos()
+    {
+        config(['demo.repopulate' => false]);
+
+        Livewire::test('demo::home')
+            ->assertDontSee('Re-populate')
+            ->call('populate')
+            ->assertForbidden();
+
+        Article::query()->delete();
+        Livewire::test('demo::home')->assertSee('Populate the database')->call('populate')->assertRedirect(route('demo'));
+        $this->assertSame(20, Article::count());
+    }
+
     public function test_table_searches_and_filters_by_author()
     {
         $article = Article::orderByDesc('id')->first();   // on the first page (sorted by id desc)

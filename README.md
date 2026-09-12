@@ -16,6 +16,8 @@ php artisan migrate
 
 Open `/demo` and click **Populate the database** (or `php artisan db:seed --class="App\\Modules\\Demo\\Database\\Seeders\\DemoSeeder"`).
 A "Crud Demo" entry appears in the admin sidebar and in the public navbar. The pages are public on purpose: it is a showcase.
+On a shared demo set `DEMO_REPOPULATE=false` (or `config('demo.repopulate')`) so visitors cannot wipe each other's data;
+reset it from a scheduled `db:seed` instead.
 
 ## What to look at
 
