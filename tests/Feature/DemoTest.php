@@ -38,6 +38,18 @@ class DemoTest extends TestCase
         $this->assertSame(20, Article::count());
     }
 
+    public function test_repopulate_replaces_the_data_instead_of_adding_to_it()
+    {
+        $before = Article::orderBy('id')->pluck('id')->all();
+
+        Livewire::test('demo::home')->call('populate');
+
+        $this->assertSame(10, Author::count());
+        $this->assertSame(20, Article::count());
+        $this->assertEmpty(array_intersect($before, Article::pluck('id')->all()), 'old rows are gone');
+        $this->assertSame(0, Article::whereNotIn('author_id', Author::pluck('id'))->count(), 'every article has a living author');
+    }
+
     public function test_table_searches_and_filters_by_author()
     {
         $article = Article::orderByDesc('id')->first();   // on the first page (sorted by id desc)

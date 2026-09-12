@@ -1,37 +1,36 @@
 <?php
 
 namespace App\Modules\Demo\Database\Seeders;
+
+use App\Modules\Demo\Models\Article;
+use App\Modules\Demo\Models\Author;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
+/** Replaces the demo data: 10 authors with 2 articles each. */
 class DemoSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
-    public function run()
+    public function run(): void
     {
+        Article::query()->delete();
+        Author::query()->delete();
+
         $faker = Factory::create();
-        for ($i = 1;$i <= 10;$i++) {
-            DB::table('demo_authors')->insert(
-                [
-                    'firstname' => $faker->firstName,
-                    'lastname' => $faker->lastName,
-                ]
-            );
-            for ($j = 1;$j <= 2;$j++) {
-                DB::table('demo_articles')->insert(
-                    [
-                        'author_id' => $i,
-                        'title' => $faker->sentence,
-                        'body' => $faker->text,
-                        'public' => 1,
-                        'publication_date' => $faker->dateTime,
-                    ]
-                );
+
+        for ($i = 1; $i <= 10; $i++) {
+            $author = Author::create([
+                'firstname' => $faker->firstName(),
+                'lastname' => $faker->lastName(),
+            ]);
+
+            for ($j = 1; $j <= 2; $j++) {
+                Article::create([
+                    'author_id' => $author->id,
+                    'title' => $faker->sentence(),
+                    'body' => $faker->text(),
+                    'public' => true,
+                    'publication_date' => $faker->dateTimeThisYear(),
+                ]);
             }
         }
     }
