@@ -16,8 +16,27 @@ php artisan migrate
 
 Open `/demo` and click **Populate the database** (or `php artisan db:seed --class="App\\Modules\\Demo\\Database\\Seeders\\DemoSeeder"`).
 A "Crud Demo" entry appears in the admin sidebar and in the public navbar. The pages are public on purpose: it is a showcase.
-On a shared demo set `DEMO_REPOPULATE=false` (or `config('demo.repopulate')`) so visitors cannot wipe each other's data;
-reset it from a scheduled `db:seed` instead.
+
+## Demo data and the "re-populate" link
+
+The seeder creates 10 authors with 2 articles each and **replaces** whatever is there. The demo home offers a
+"Re-populate the demo data" link, enabled by default: on your machine you are the only user, and after creating,
+editing and deleting records you want a clean dataset back with one click.
+
+On a **shared, public demo** turn it off, otherwise one visitor wipes what another is trying:
+
+```dotenv
+DEMO_REPOPULATE=false
+```
+
+or `'repopulate' => false` in a `config/demo.php` of the application. The link disappears and the action answers 403;
+filling an *empty* database stays possible. Reset the data on a schedule instead, e.g. in `routes/console.php`:
+
+```php
+Schedule::command('db:seed', ['--class' => \App\Modules\Demo\Database\Seeders\DemoSeeder::class, '--force' => true])->hourly();
+```
+
+This is what [rapyd.dev](https://rapyd.dev/demo) does.
 
 ## What to look at
 

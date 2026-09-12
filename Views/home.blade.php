@@ -14,7 +14,8 @@
         </p>
         @if(config('demo.repopulate', true))
             <p class="small text-muted mb-0">
-                Want a clean slate? <a href="#" wire:click.prevent="populate">Re-populate the demo data</a>.
+                Want a clean slate? <a href="#" wire:click.prevent="populate">Re-populate the demo data</a>
+                (replaces all authors and articles; on a shared demo disable it with <code>DEMO_REPOPULATE=false</code>).
             </p>
         @endif
     @else
