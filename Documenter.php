@@ -7,8 +7,20 @@ use ReflectionMethod;
 
 class Documenter
 {
+    /**
+     * highlight_string() writes its colours inline: point them at CSS variables so
+     * the theme (light / dark) decides them, see Views/documenter_style.blade.php.
+     */
+    protected static function useThemeColors(): void
+    {
+        foreach (['comment', 'default', 'html', 'keyword', 'string'] as $token) {
+            ini_set('highlight.' . $token, 'var(--doc-' . $token . ')');
+        }
+    }
+
     public static function showString($code, $addOpenTag = true)
     {
+        self::useThemeColors();
         if ($addOpenTag) {
             $code = '<?php '.$code;
         }
@@ -22,6 +34,7 @@ class Documenter
 
     public static function showCode($filepath, $addOpenTag = false, $wrapRegex = null)
     {
+        self::useThemeColors();
         $file = __DIR__.'/'.$filepath;
 
         $code = file_get_contents($file);

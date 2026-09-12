@@ -36,6 +36,7 @@
 </x-rpd::card>
 
 @section('doc')
+    @include('demo::documenter_style')
     <div class="row my-3">
         <div class="col-md-4">
             @include('demo::folders', ['current' => 'table'])

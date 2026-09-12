@@ -27,5 +27,6 @@
 </x-rpd::card>
 
 @section('doc')
+    @include('demo::documenter_style')
     @include('demo::folders', ['current' => 'home'])
 @endsection
