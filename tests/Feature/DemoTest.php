@@ -95,6 +95,13 @@ class DemoTest extends TestCase
         $this->assertDatabaseHas('demo_articles', ['title' => 'Written from the test', 'author_id' => $author->id]);
     }
 
+    public function test_the_demo_is_listed_in_both_menus()
+    {
+        $this->assertContains('demo::menu', config('rapyd.menus.admin'));
+        $this->assertContains('demo::frontend_menu', config('rapyd.menus.frontend'));
+        $this->get(route('demo'))->assertOk()->assertSee('Crud Demo');
+    }
+
     public function test_pages_render_inside_the_admin_layout_without_login()
     {
         $this->get(route('demo'))->assertOk()->assertSee('Rapyd CRUD demo');

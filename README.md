@@ -15,14 +15,14 @@ php artisan migrate
 ```
 
 Open `/demo` and click **Populate the database** (or `php artisan db:seed --class="App\\Modules\\Demo\\Database\\Seeders\\DemoSeeder"`).
-A "Crud Demo" entry appears in the sidebar. The pages are public on purpose: it is a showcase.
+A "Crud Demo" entry appears in the admin sidebar and in the public navbar. The pages are public on purpose: it is a showcase.
 
 ## What to look at
 
 ```
 demo-module/
 ├─ Livewire/       Home, ArticlesTable, ArticlesView, ArticlesEdit
-├─ Views/          home, articles_table, articles_view, articles_edit, menu, folders
+├─ Views/          home, articles_table, articles_view, articles_edit, menu, frontend_menu, folders
 ├─ Models/         Article (SSearch), Author
 ├─ Database/       migrations (demo_articles, demo_authors) and the seeder
 ├─ config.php      layout, sidebar entry

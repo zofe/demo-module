@@ -15,7 +15,8 @@
 │  ├─ <span class="{{ $on('table') }}">articles_table.blade.php</span>
 │  ├─ <span class="{{ $on('view') }}">articles_view.blade.php</span>
 │  ├─ <span class="{{ $on('edit') }}">articles_edit.blade.php</span>
-│  └─ menu.blade.php
+│  ├─ menu.blade.php
+│  └─ frontend_menu.blade.php
 ├─ Models/               Article.php, Author.php
 ├─ Database/             Migrations/, Seeders/
 ├─ config.php            layout, menu entry
