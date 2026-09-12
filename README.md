@@ -1,5 +1,7 @@
 # Rapyd Admin — Demo module
 
+<a href="https://github.com/zofe/demo-module/actions/workflows/run-tests.yml"><img src="https://github.com/zofe/demo-module/actions/workflows/run-tests.yml/badge.svg" alt="Tests"></a>
+
 The self-documenting CRUD demo of [Rapyd Admin](https://github.com/zofe/rapyd-admin): a table, a detail page and a
 form for *Articles* by *Authors*. Every page shows, right under it, the route, the Livewire component and the Blade
 view that produce it, so you see how little a CRUD takes. It is also the reference for **a module packaged on its
