@@ -28,5 +28,29 @@
 
 @section('doc')
     @include('demo::documenter_style')
-    @include('demo::folders', ['current' => 'home'])
+    <div class="row my-3">
+        <div class="col-md-4">
+            @include('demo::folders', ['current' => 'home'])
+        </div>
+        <div class="col-md-8">
+            <div class="documenter h-100">
+                <h4>route</h4>
+                {!! App\Modules\Demo\Documenter::showCode('routes.php', false, "^Route::get\('demo',.*\)\);$") !!}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <div class="documenter">
+                <h4>component</h4>
+                {!! App\Modules\Demo\Documenter::showCode('Livewire/Home.php') !!}
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="documenter">
+                <h4>view</h4>
+                {!! App\Modules\Demo\Documenter::showCode('Views/home.blade.php', true) !!}
+            </div>
+        </div>
+    </div>
 @endsection
