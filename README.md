@@ -1,33 +1,46 @@
-# Demo Module
+# Rapyd Admin — Demo module
 
-This is a demo module for a Laravel application (>= 8) 
+The self-documenting CRUD demo of [Rapyd Admin](https://github.com/zofe/rapyd-admin): a table, a detail page and a
+form for *Articles* by *Authors*. Every page shows, right under it, the route, the Livewire component and the Blade
+view that produce it, so you see how little a CRUD takes. It is also the reference for **a module packaged on its
+own**: same folder layout as a module generated in `app/Modules`, plus `composer.json`, a provider and tests.
 
-Demo show "CRUD" features in the laravel / rapyd-livewire stack.  
-[rapyd-livewire](https://github.com/zofe/rapyd-livewire) is a laravel library of blade components, livewire traits, and modules scaffolder that you can use to generate administration interfaces in a concise, reusable, uncluttered, and testable manner.
+Live: [rapyd.dev/demo](https://rapyd.dev/demo)
 
+## Install
 
-# Installation & configuration 
-
-Your can require this module in your laravel application using:
-```
+```bash
 composer require zofe/demo-module
-
-php artisan migrate 
-php artisan db:seed --class="App\\Modules\\Demo\\Database\\Seeders\\DemoSeeder"
-```
-Note that demo module use layout-module, you may need to do:
-
-```
-cd app/Modules/Layout/
-
-npm i
-npm run dev
+php artisan migrate
 ```
 
-this will compile scss and copy css assets to your public project folder
+Open `/demo` and click **Populate the database** (or `php artisan db:seed --class="App\\Modules\\Demo\\Database\\Seeders\\DemoSeeder"`).
+A "Crud Demo" entry appears in the sidebar. The pages are public on purpose: it is a showcase.
 
+## What to look at
 
-# Usage
-This command will create a folder "Demo" in your /app/Modules/ folder,   
-then a demo will be enabled in `/demo` route
+```
+demo-module/
+├─ Livewire/       Home, ArticlesTable, ArticlesView, ArticlesEdit
+├─ Views/          home, articles_table, articles_view, articles_edit, menu, folders
+├─ Models/         Article (SSearch), Author
+├─ Database/       migrations (demo_articles, demo_authors) and the seeder
+├─ config.php      layout, sidebar entry
+├─ routes.php
+├─ DemoModuleServiceProvider.php   extends RapydModuleServiceProvider, $modulePath = __DIR__
+└─ tests/          Testbench + Livewire tests of the three pages
+```
 
+- `ArticlesTable`: `WithDataTable`, search through the `SSearch` trait, an author filter, sorting and pagination in a
+  `x-rpd::table`.
+- `ArticlesEdit`: a `x-rpd::edit` form bound to the model, `$rules` as the single source of validation and of the
+  fields kept between requests, `x-rpd::rich-text` for the body.
+- `Documenter`: prints the source of a file (or a route matched by a regex) with the documentation block stripped.
+- Copy the folder to `app/Modules/Demo` and it keeps working as an app module: the provider steps aside.
+
+## Tests
+
+```bash
+composer install
+composer test
+```

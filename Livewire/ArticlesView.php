@@ -1,22 +1,21 @@
 <?php
 
-namespace App\Modules\Demo\Components\Articles;
+namespace App\Modules\Demo\Livewire;
 
 use App\Modules\Demo\Models\Article;
 use Livewire\Component;
 
-
 class ArticlesView extends Component
 {
-    public $article;
+    public Article $article;
 
-    public function mount(Article $article)
+    public function mount(Article $article): void
     {
         $this->article = $article;
     }
 
     public function render()
     {
-        return view('demo::Articles.views.articles_view')->layout('demo::admin');
+        return view('demo::articles_view')->layout('layout::admin');
     }
 }

@@ -1,6 +1,6 @@
 {
     "name": "zofe/demo-module",
-    "description": "Demo CRUD module for rapyd-admin — self-documenting articles/authors example",
+    "description": "The self-documenting CRUD demo of rapyd-admin: a table, a detail page and a form for Articles, each page showing its own route, component and view.",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -14,16 +14,20 @@
         "illuminate/config": "^11.0|^12.0|^13.0",
         "illuminate/contracts": "^11.0|^12.0|^13.0",
         "livewire/livewire": "^4.0",
-        "zofe/rapyd-admin": "^1.0"
+        "zofe/rapyd-admin": "^9.6.1"
     },
     "require-dev": {
         "orchestra/testbench": "^10.0|^11.0",
-        "phpunit/phpunit": "^11.0|^12.0"
+        "phpunit/phpunit": "^11.0|^12.0",
+        "fakerphp/faker": "^1.23"
     },
     "autoload": {
         "psr-4": {
             "App\\Modules\\Demo\\": "./"
-        }
+        },
+        "exclude-from-classmap": [
+            "/tests/"
+        ]
     },
     "extra": {
         "laravel": {
@@ -33,5 +37,13 @@
         }
     },
     "minimum-stability": "stable",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Modules\\Demo\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    }
 }

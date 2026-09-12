@@ -25,8 +25,8 @@ class Documenter
         $file = __DIR__.'/'.$filepath;
 
         $code = file_get_contents($file);
-        $code = preg_replace("#@section\('doc'\)(.*)@endsection#Us", '', $code);
-        $code = preg_replace("#{!! App\\\\Documenter::show(.*) !!}#Us", '', $code);
+        // Strip the documentation block itself, so a view shows only what does the work.
+        $code = preg_replace("#\n?@section\('doc'\)(.*)@endsection\n?#Us", '', $code);
 
         if($wrapRegex) {
             $addOpenTag = true;

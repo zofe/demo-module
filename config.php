@@ -1,16 +1,7 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Demo Module Configurations
-|--------------------------------------------------------------------------
-|
-|
-*/
 return [
-    'layout' => 'demo::admin',
-    'menu_admin' => 'demo::admin_menu',
-    'menu_admin_position' => 0,
-    'menu_frontend' => 'demo::frontend_menu',
-    'menu_frontend_position' => 0,
+    'layout'              => 'layout::admin',
+    'menu_admin'          => 'demo::menu',
+    'menu_admin_position' => 5,
 ];

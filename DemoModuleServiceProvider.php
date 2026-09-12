@@ -2,34 +2,27 @@
 
 namespace App\Modules\Demo;
 
-use Illuminate\Support\ServiceProvider;
+use Zofe\Rapyd\Modules\RapydModuleServiceProvider;
 
-class DemoModuleServiceProvider extends ServiceProvider
+/**
+ * A module packaged on its own: same folder layout as a module generated in
+ * app/Modules, plus this provider. bootAppModule() loads migrations, views,
+ * routes and the "demo::" Livewire components; config.php is merged as
+ * config('demo'). Copy the folder to app/Modules/Demo and it keeps working
+ * (isEjected() steps aside, the app's ModuleServiceProvider takes over).
+ */
+class DemoModuleServiceProvider extends RapydModuleServiceProvider
 {
-    public function register(): void
-    {
-        $this->mergeConfigFrom(__DIR__ . '/config.php', 'demo');
-    }
+    protected string $moduleName = 'Demo';
+
+    protected ?string $modulePath = __DIR__;
 
     public function boot(): void
     {
-        // ModuleServiceProvider handles everything when the module is ejected to app/Modules/Demo/
         if ($this->isEjected()) {
             return;
         }
 
-        $this->loadMigrationsFrom(__DIR__ . '/Database/Migrations');
-
-        $this->loadViewsFrom(__DIR__ . '/Views', 'demo');
-        $this->loadViewsFrom(__DIR__ . '/Components', 'demo');
-
-        $this->loadRoutesFrom(__DIR__ . '/routes.php');
-        $this->loadRoutesFrom(__DIR__ . '/Components/routes.php');
-
-    }
-
-    protected function isEjected(): bool
-    {
-        return is_dir(app_path('Modules/Demo'));
+        $this->bootAppModule('demo');
     }
 }
