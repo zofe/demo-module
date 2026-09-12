@@ -99,7 +99,8 @@ class DemoTest extends TestCase
     {
         $this->assertContains('demo::menu', config('rapyd.menus.admin'));
         $this->assertContains('demo::frontend_menu', config('rapyd.menus.frontend'));
-        $this->get(route('demo'))->assertOk()->assertSee('Try the CRUD demo');
+        $this->get(route('demo'))->assertOk()->assertSee('Crud Demo');                       // admin sidebar
+        $this->assertStringContainsString('Try the CRUD demo', view('demo::frontend_menu')->render()); // public navbar
     }
 
     public function test_pages_render_inside_the_admin_layout_without_login()
