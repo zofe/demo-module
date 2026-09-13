@@ -1,8 +1,8 @@
 <x-rpd::card>
     <x-rpd::view title="Article">
         <x-slot name="buttons">
-            <x-rpd::button route="demo.articles" color="outline-primary" label="list" />
-            <x-rpd::button :route="['demo.articles.edit', $article->id]" color="outline-primary" label="edit" />
+            <x-rpd::button route="demo.articles" color="outline-primary" label="List" />
+            <x-rpd::button :route="['demo.articles.edit', $article->id]" color="outline-primary" label="Edit" />
         </x-slot>
 
         <dl class="row">
