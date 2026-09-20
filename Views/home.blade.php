@@ -4,8 +4,8 @@
     @endif
 
     <p>
-        Three pages, three files each: a Livewire component, a Blade view and a route.
-        Every page shows its own source code underneath, so you can see exactly how little it takes.
+        {{ __('Three pages, three files each: a Livewire component, a Blade view and a route.') }}
+        {{ __('Every page shows its own source code underneath, so you can see exactly how little it takes.') }}
     </p>
 
     @if($db_filled)
@@ -14,14 +14,14 @@
         </p>
         @if(config('demo.repopulate', true))
             <p class="small text-muted mb-0">
-                Want a clean slate? <a href="#" wire:click.prevent="populate">Re-populate the demo data</a>
-                (replaces all authors and articles; on a shared demo disable it with <code>DEMO_REPOPULATE=false</code>).
+                {{ __('Want a clean slate?') }} <a href="#" wire:click.prevent="populate">{{ __('Re-populate the demo data') }}</a>
+                ({{ __('replaces all authors and articles; on a shared demo disable it with') }} <code>DEMO_REPOPULATE=false</code>).
             </p>
         @endif
     @else
         <p class="mb-0">
-            No demo data yet.
-            <a href="#" wire:click.prevent="populate" class="btn btn-outline-primary btn-sm">Populate the database</a>
+            {{ __('No demo data yet.') }}
+            <a href="#" wire:click.prevent="populate" class="btn btn-outline-primary btn-sm">{{ __('Populate the database') }}</a>
         </p>
     @endif
 </x-rpd::card>
@@ -34,7 +34,7 @@
         </div>
         <div class="col-md-8">
             <div class="documenter h-100">
-                <h4>route</h4>
+                <h4>{{ __('route') }}</h4>
                 {!! App\Modules\Demo\Documenter::showCode('routes.php', false, "^Route::get\('demo',.*\)\);$") !!}
             </div>
         </div>
@@ -42,13 +42,13 @@
     <div class="row">
         <div class="col-md-5">
             <div class="documenter">
-                <h4>component</h4>
+                <h4>{{ __('component') }}</h4>
                 {!! App\Modules\Demo\Documenter::showCode('Livewire/Home.php') !!}
             </div>
         </div>
         <div class="col-md-7">
             <div class="documenter">
-                <h4>view</h4>
+                <h4>{{ __('view') }}</h4>
                 {!! App\Modules\Demo\Documenter::showCode('Views/home.blade.php', true) !!}
             </div>
         </div>

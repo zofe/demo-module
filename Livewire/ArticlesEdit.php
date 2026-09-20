@@ -30,7 +30,7 @@ class ArticlesEdit extends Component
         $this->validate();
         $this->article->save();
 
-        return redirect()->to(route('demo.articles.view', $this->article->getKey()));
+        return redirect()->to(route_lang('demo.articles.view', $this->article->getKey()));
     }
 
     public function render()

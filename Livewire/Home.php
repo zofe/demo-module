@@ -28,7 +28,7 @@ class Home extends Component
 
         session()->flash('message', 'Demo data (re)populated.');
 
-        return redirect()->to(route('demo'));
+        return redirect()->to(route_lang('demo'));
     }
 
     public function render()

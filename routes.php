@@ -9,23 +9,23 @@ use Illuminate\Support\Facades\Route;
 Route::get('demo', Home::class)
     ->middleware(['web'])
     ->name('demo')
-    ->crumbs(fn ($crumbs) => $crumbs->push('Demo', route('demo')));
+    ->crumbs(fn ($crumbs) => $crumbs->push(__('Demo'), route_lang('demo')));
 
 Route::get('demo/articles', ArticlesTable::class)
     ->middleware(['web'])
     ->name('demo.articles')
-    ->crumbs(fn ($crumbs) => $crumbs->parent('demo')->push('Articles', route('demo.articles')));
+    ->crumbs(fn ($crumbs) => $crumbs->parent('demo')->push(__('Articles'), route_lang('demo.articles')));
 
 Route::get('demo/articles/view/{article:id}', ArticlesView::class)
     ->middleware(['web'])
     ->name('demo.articles.view')
-    ->crumbs(fn ($crumbs, $article) => $crumbs->parent('demo.articles')->push('View Article', route('demo.articles.view', $article)));
+    ->crumbs(fn ($crumbs, $article) => $crumbs->parent('demo.articles')->push(__('View Article'), route_lang('demo.articles.view', $article)));
 
 Route::get('demo/articles/edit/{article:id?}', ArticlesEdit::class)
     ->middleware(['web'])
     ->name('demo.articles.edit')
     ->crumbs(function ($crumbs, $article = null) {
         $article
-            ? $crumbs->parent('demo.articles.view', $article)->push('Edit Article', route('demo.articles.edit', $article))
-            : $crumbs->parent('demo.articles')->push('Add Article', route('demo.articles.edit'));
+            ? $crumbs->parent('demo.articles.view', $article)->push(__('Edit Article'), route_lang('demo.articles.edit', $article))
+            : $crumbs->parent('demo.articles')->push(__('Add Article'), route_lang('demo.articles.edit'));
     });

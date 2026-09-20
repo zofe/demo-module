@@ -25,7 +25,7 @@
         </div>
         <div class="col-md-8">
             <div class="documenter h-100">
-                <h4>route</h4>
+                <h4>{{ __('route') }}</h4>
                 {!! App\Modules\Demo\Documenter::showCode('routes.php', false, "^Route::get\('demo\/articles\/edit.*\}\);$") !!}
             </div>
         </div>
@@ -33,13 +33,13 @@
     <div class="row">
         <div class="col-md-5">
             <div class="documenter">
-                <h4>component</h4>
+                <h4>{{ __('component') }}</h4>
                 {!! App\Modules\Demo\Documenter::showCode('Livewire/ArticlesEdit.php') !!}
             </div>
         </div>
         <div class="col-md-7">
             <div class="documenter">
-                <h4>view</h4>
+                <h4>{{ __('view') }}</h4>
                 {!! App\Modules\Demo\Documenter::showCode('Views/articles_edit.blade.php', true) !!}
             </div>
         </div>

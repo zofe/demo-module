@@ -3,7 +3,7 @@
     $on = fn (string $page) => ($current ?? '') === $page ? 'text-success fw-bold' : '';
 @endphp
 <div class="documenter h-100">
-    <h4>module structure</h4>
+    <h4>{{ __('module structure') }}</h4>
 <pre class="mb-0"><code>demo-module/
 ├─ Livewire/
 │  ├─ <span class="{{ $on('home') }}">Home.php</span>
