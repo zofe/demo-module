@@ -2,6 +2,7 @@
 
 namespace App\Modules\Demo;
 
+use App\Modules\Demo\Ai\DemoAiToolProvider;
 use Zofe\Rapyd\Modules\RapydModuleServiceProvider;
 
 /**
@@ -24,5 +25,11 @@ class DemoModuleServiceProvider extends RapydModuleServiceProvider
         }
 
         $this->bootAppModule('demo');
+
+        // What the AI assistant may read of the demo (two tools over articles and authors),
+        // when ai-module is installed. Offered to the visitors only with AI_WIDGET_GUEST_TOOLS=demo_*.
+        if (class_exists(\Zofe\Ai\AiRegistry::class)) {
+            \Zofe\Ai\AiRegistry::register(new DemoAiToolProvider());
+        }
     }
 }

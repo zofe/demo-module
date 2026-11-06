@@ -59,6 +59,11 @@ demo-module/
 - `ArticlesEdit`: a `x-rpd::edit` form bound to the model, `$rules` as the single source of validation and of the
   fields kept between requests, `x-rpd::rich-text` for the body.
 - `Documenter`: prints the source of a file (or a route matched by a regex) with the documentation block stripped.
+- `Ai/DemoAiToolProvider`: what the AI assistant of [ai-module](https://github.com/zofe/ai-module) may read of the
+  demo, when that module is installed. Two tools: `demo_search_articles` (a word in the title or the body, an author;
+  titles, names, dates and links back, never a body) and `demo_overview` (the numbers of the demo). The module only
+  registers them: the application decides who gets them, `AI_WIDGET_GUEST_TOOLS=demo_*` opens them to the visitors
+  of a public demo.
 - Copy the folder to `app/Modules/Demo` and it keeps working as an app module: the provider steps aside.
 
 ## Tests
